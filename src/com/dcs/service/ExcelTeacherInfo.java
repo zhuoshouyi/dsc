@@ -2,8 +2,11 @@ package com.dcs.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -14,6 +17,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.junit.Test;
 
+import com.dcs.pojo.TeacherInfo;
 import com.dcs.pojo.TeacherInfo;
 
 public class ExcelTeacherInfo {
@@ -35,7 +39,7 @@ public class ExcelTeacherInfo {
 	 * @throws IOException
 	 */
 	@Test
-	public void teacherInfoServers() throws IOException {
+	public ArrayList<TeacherInfo> upload() throws IOException {
 
 		ArrayList<TeacherInfo> teacherInfoList = new ArrayList<TeacherInfo>();
 
@@ -74,6 +78,48 @@ public class ExcelTeacherInfo {
 		}
 		System.out.println("TeacherInfo中数据导入完毕.");
 		System.out.println(teacherInfoList);
-		// return teacherInfoList;
+		return teacherInfoList;
 	}
+
+	public File download(ArrayList<TeacherInfo> teacherInfoList) throws FileNotFoundException, IOException {
+		// 选择文件
+		file = new File("excel/学工办/班主任名单.xls");
+		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
+		sheet = workbook.getSheetAt(0);
+
+		int size = teacherInfoList.size();
+		for (int i = 0; i < size; i++) {// 循环，控制总行数
+			HSSFRow row = sheet.createRow(i + rowIndex);
+			TeacherInfo teacherInfo = teacherInfoList.get(i);
+			HSSFCell cell = row.createCell(0);
+			cell.setCellValue(teacherInfo.getClassroom());
+			cell = row.createCell(1);
+			cell.setCellValue(teacherInfo.getTeacher());
+			cell = row.createCell(2);
+			cell.setCellValue(teacherInfo.getSex());
+			cell = row.createCell(3);
+			cell.setCellValue(teacherInfo.getNativePlace());
+			cell = row.createCell(4);
+			cell.setCellValue(teacherInfo.getBirthPlace());
+			cell = row.createCell(5);
+			cell.setCellValue(teacherInfo.getContacts());
+
+		}
+
+		// 利用数据流写入
+		OutputStream out = null;
+		try {
+			out = new FileOutputStream(file);
+			workbook.write(out);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("数据已经写入excel中。");
+		return file;
+	}
+
 }

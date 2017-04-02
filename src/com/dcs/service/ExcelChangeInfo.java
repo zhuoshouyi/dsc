@@ -67,7 +67,7 @@ public class ExcelChangeInfo {
 			changeInfo.setStudentId((int) cell[1].getNumericCellValue());
 			changeInfo.setClassroom(cell[2].getStringCellValue());
 			changeInfo.setChangeReason(cell[3].getStringCellValue());
-			changeInfo.setChangeTime(cell[4].getDateCellValue());
+			changeInfo.setChangeTime(cell[4].getStringCellValue());
 			changeInfoList.add(changeInfo);
 			rowIndex++;
 			row = sheet.getRow(rowIndex);
@@ -77,7 +77,7 @@ public class ExcelChangeInfo {
 		return changeInfoList;
 	}
 
-	public void download(ArrayList<ChangeInfo> changeInfoList) throws FileNotFoundException, IOException {
+	public File download(ArrayList<ChangeInfo> changeInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
 		file = new File("excel/年级学籍异动学生名单和原因.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
@@ -113,6 +113,6 @@ public class ExcelChangeInfo {
 		}
 
 		System.out.println("数据已经写入excel中。");
-
+		return file;
 	}
 }

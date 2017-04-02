@@ -1,7 +1,5 @@
 package com.dcs.pojo;
 
-import java.util.Date;
-
 public class PunishInfo {
 	private Integer id;
 
@@ -17,7 +15,7 @@ public class PunishInfo {
 
 	private String punishReason;
 
-	private Date punishTime;
+	private String punishTime;
 
 	public Integer getId() {
 		return id;
@@ -75,11 +73,11 @@ public class PunishInfo {
 		this.punishReason = punishReason == null ? null : punishReason.trim();
 	}
 
-	public Date getPunishTime() {
+	public String getPunishTime() {
 		return punishTime;
 	}
 
-	public void setPunishTime(Date punishTime) {
+	public void setPunishTime(String punishTime) {
 		this.punishTime = punishTime;
 	}
 

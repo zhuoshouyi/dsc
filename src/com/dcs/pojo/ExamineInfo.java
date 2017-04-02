@@ -11,6 +11,8 @@ public class ExamineInfo {
 
 	private Double studentExamine;
 
+	private Double evaluationExamine;
+
 	private Double totalExamine;
 
 	public Integer getId() {
@@ -53,6 +55,14 @@ public class ExamineInfo {
 		this.studentExamine = studentExamine;
 	}
 
+	public Double getevaluationExamine() {
+		return evaluationExamine;
+	}
+
+	public void setevaluationExamine(Double evaluationExamine) {
+		this.evaluationExamine = evaluationExamine;
+	}
+
 	public Double getTotalExamine() {
 		return totalExamine;
 	}
@@ -64,7 +74,8 @@ public class ExamineInfo {
 	@Override
 	public String toString() {
 		return "ExamineInfo [id=" + id + ", infoId=" + infoId + ", counselor=" + counselor + ", dailyExamine="
-				+ dailyExamine + ", studentExamine=" + studentExamine + ", totalExamine=" + totalExamine + "]";
+				+ dailyExamine + ", studentExamine=" + studentExamine + ", evaluationExamine=" + evaluationExamine
+				+ ", totalExamine=" + totalExamine + "]";
 	}
 
 }

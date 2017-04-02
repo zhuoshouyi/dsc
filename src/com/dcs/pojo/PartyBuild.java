@@ -1,7 +1,5 @@
 package com.dcs.pojo;
 
-import java.util.Date;
-
 public class PartyBuild {
 	private Integer id;
 
@@ -19,9 +17,9 @@ public class PartyBuild {
 
 	private String birthday;
 
-	private Date probationaryPartyMemberDate;
+	private String probationaryPartyMemberDate;
 
-	private Date regularPartyMemberDate;
+	private String regularPartyMemberDate;
 
 	private String nation;
 
@@ -93,19 +91,19 @@ public class PartyBuild {
 		this.birthday = birthday == null ? null : birthday.trim();
 	}
 
-	public Date getProbationaryPartyMemberDate() {
+	public String getProbationaryPartyMemberDate() {
 		return probationaryPartyMemberDate;
 	}
 
-	public void setProbationaryPartyMemberDate(Date probationaryPartyMemberDate) {
+	public void setProbationaryPartyMemberDate(String probationaryPartyMemberDate) {
 		this.probationaryPartyMemberDate = probationaryPartyMemberDate;
 	}
 
-	public Date getRegularPartyMemberDate() {
+	public String getRegularPartyMemberDate() {
 		return regularPartyMemberDate;
 	}
 
-	public void setRegularPartyMemberDate(Date regularPartyMemberDate) {
+	public void setRegularPartyMemberDate(String regularPartyMemberDate) {
 		this.regularPartyMemberDate = regularPartyMemberDate;
 	}
 

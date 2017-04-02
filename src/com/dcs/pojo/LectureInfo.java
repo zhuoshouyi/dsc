@@ -1,7 +1,5 @@
 package com.dcs.pojo;
 
-import java.util.Date;
-
 public class LectureInfo {
 	private Integer id;
 
@@ -9,7 +7,7 @@ public class LectureInfo {
 
 	private String play;
 
-	private Date time;
+	private String time;
 
 	private String place;
 
@@ -43,11 +41,11 @@ public class LectureInfo {
 		this.play = play == null ? null : play.trim();
 	}
 
-	public Date getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 

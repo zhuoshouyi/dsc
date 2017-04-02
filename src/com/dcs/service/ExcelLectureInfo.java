@@ -2,8 +2,11 @@ package com.dcs.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -34,7 +37,7 @@ public class ExcelLectureInfo {
 	 * @throws IOException
 	 */
 	@Test
-	public void lectureInfoServers() throws IOException {
+	public ArrayList<LectureInfo> upload() throws IOException {
 
 		ArrayList<LectureInfo> lectureInfoList = new ArrayList<LectureInfo>();
 
@@ -61,7 +64,7 @@ public class ExcelLectureInfo {
 
 			LectureInfo lectureInfo = new LectureInfo();
 			lectureInfo.setPlay(cell[0].getStringCellValue());
-			lectureInfo.setTime(cell[1].getDateCellValue());
+			lectureInfo.setTime(cell[1].getStringCellValue());
 			lectureInfo.setPlace(cell[2].getStringCellValue());
 			lectureInfo.setObject(cell[3].getStringCellValue());
 			lectureInfo.setTalker(cell[4].getStringCellValue());
@@ -72,6 +75,48 @@ public class ExcelLectureInfo {
 		}
 		System.out.println("LectureInfo中数据导入完毕.");
 		System.out.println(lectureInfoList);
-		// return lectureInfoList;
+		return lectureInfoList;
 	}
+
+	public File download(ArrayList<LectureInfo> lectureInfoList) throws FileNotFoundException, IOException {
+		// 选择文件
+		file = new File("excel/机械工程学院讲座统计表.xls");
+		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
+		sheet = workbook.getSheetAt(0);
+
+		int size = lectureInfoList.size();
+		for (int i = 0; i < size; i++) {// 循环，控制总行数
+			HSSFRow row = sheet.createRow(i + rowIndex);
+			LectureInfo lectureInfo = lectureInfoList.get(i);
+			HSSFCell cell = row.createCell(0);
+			cell.setCellValue(lectureInfo.getPlay());
+			cell = row.createCell(1);
+			cell.setCellValue(lectureInfo.getTime());
+			cell = row.createCell(2);
+			cell.setCellValue(lectureInfo.getPlace());
+			cell = row.createCell(3);
+			cell.setCellValue(lectureInfo.getObject());
+			cell = row.createCell(4);
+			cell.setCellValue(lectureInfo.getTalker());
+			cell = row.createCell(5);
+			cell.setCellValue(lectureInfo.getParticipants());
+
+		}
+
+		// 利用数据流写入
+		OutputStream out = null;
+		try {
+			out = new FileOutputStream(file);
+			workbook.write(out);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("数据已经写入excel中。");
+		return file;
+	}
+
 }

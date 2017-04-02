@@ -2,8 +2,11 @@ package com.dcs.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -13,6 +16,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.junit.Test;
 
+import com.dcs.pojo.ContestInfo;
 import com.dcs.pojo.ContestInfo;
 
 public class ExcelContestInfo {
@@ -34,7 +38,7 @@ public class ExcelContestInfo {
 	 * @throws IOException
 	 */
 	@Test
-	public void contestInfoServers() throws IOException {
+	public ArrayList<ContestInfo> upload() throws IOException {
 
 		ArrayList<ContestInfo> contestInfoList = new ArrayList<ContestInfo>();
 
@@ -74,6 +78,49 @@ public class ExcelContestInfo {
 		}
 		System.out.println("ContestInfo中数据导入完毕.");
 		System.out.println(contestInfoList);
-		// return contestInfoList;
+		return contestInfoList;
+	}
+
+	public void download(ArrayList<ContestInfo> contestInfoList) throws FileNotFoundException, IOException {
+		// 选择文件
+		file = new File("excel/学科竞赛统计表.xls");
+		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
+		sheet = workbook.getSheetAt(0);
+
+		int size = contestInfoList.size();
+		for (int i = 0; i < size; i++) {// 循环，控制总行数
+			HSSFRow row = sheet.createRow(i + rowIndex);
+			ContestInfo contestInfo = contestInfoList.get(i);
+			HSSFCell cell = row.createCell(0);
+			cell.setCellValue(contestInfo.getSponsor());
+			cell = row.createCell(1);
+			cell.setCellValue(contestInfo.getContestName());
+			cell = row.createCell(2);
+			cell.setCellValue(contestInfo.getContestGrade());
+			cell = row.createCell(3);
+			cell.setCellValue(contestInfo.getWorkName());
+			cell = row.createCell(4);
+			cell.setCellValue(contestInfo.getContestStudent());
+			cell = row.createCell(5);
+			cell.setCellValue(contestInfo.getTutor());
+			cell = row.createCell(6);
+			cell.setCellValue(contestInfo.getRemark());
+
+		}
+
+		// 利用数据流写入
+		OutputStream out = null;
+		try {
+			out = new FileOutputStream(file);
+			workbook.write(out);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("数据已经写入excel中。");
+
 	}
 }

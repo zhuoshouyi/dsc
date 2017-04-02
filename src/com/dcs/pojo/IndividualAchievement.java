@@ -1,7 +1,5 @@
 package com.dcs.pojo;
 
-import java.util.Date;
-
 public class IndividualAchievement {
 	private Integer id;
 
@@ -11,7 +9,7 @@ public class IndividualAchievement {
 
 	private String reward;
 
-	private Date rewardTime;
+	private String rewardTime;
 
 	private String remark;
 
@@ -47,11 +45,11 @@ public class IndividualAchievement {
 		this.reward = reward == null ? null : reward.trim();
 	}
 
-	public Date getRewardTime() {
+	public String getRewardTime() {
 		return rewardTime;
 	}
 
-	public void setRewardTime(Date rewardTime) {
+	public void setRewardTime(String rewardTime) {
 		this.rewardTime = rewardTime;
 	}
 

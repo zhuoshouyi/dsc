@@ -1,7 +1,5 @@
 package com.dcs.pojo;
 
-import java.util.Date;
-
 public class ChangeInfo {
 	private Integer id;
 
@@ -15,7 +13,7 @@ public class ChangeInfo {
 
 	private String changeReason;
 
-	private Date changeTime;
+	private String changeTime;
 
 	public Integer getId() {
 		return id;
@@ -65,11 +63,11 @@ public class ChangeInfo {
 		this.changeReason = changeReason == null ? null : changeReason.trim();
 	}
 
-	public Date getChangeTime() {
+	public String getChangeTime() {
 		return changeTime;
 	}
 
-	public void setChangeTime(Date changeTime) {
+	public void setChangeTime(String changeTime) {
 		this.changeTime = changeTime;
 	}
 

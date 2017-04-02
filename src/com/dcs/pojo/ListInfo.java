@@ -20,7 +20,7 @@ public class ListInfo {
 
 	private Integer reviser;
 
-	private Date reviseTime;
+	private String reviseTime;
 
 	private String userLevel;
 
@@ -88,11 +88,11 @@ public class ListInfo {
 		this.reviser = reviser;
 	}
 
-	public Date getReviseTime() {
+	public String getReviseTime() {
 		return reviseTime;
 	}
 
-	public void setReviseTime(Date reviseTime) {
+	public void setReviseTime(String reviseTime) {
 		this.reviseTime = reviseTime;
 	}
 

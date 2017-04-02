@@ -82,7 +82,7 @@ public class ExcelCampusActivities {
 		return campusActivitiesList;
 	}
 
-	public void download(ArrayList<CampusActivities> campusActivitiesList) throws FileNotFoundException, IOException {
+	public File download(ArrayList<CampusActivities> campusActivitiesList) throws FileNotFoundException, IOException {
 		// 选择文件
 		file = new File("excel/校园活动获奖名单模板.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
@@ -126,6 +126,6 @@ public class ExcelCampusActivities {
 		}
 
 		System.out.println("数据已经写入excel中。");
-
+		return file;
 	}
 }

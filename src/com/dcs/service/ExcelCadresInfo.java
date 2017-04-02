@@ -84,7 +84,7 @@ public class ExcelCadresInfo {
 		return cadresInfoList;
 	}
 
-	public void download(ArrayList<CadresInfo> cadresInfoList) throws FileNotFoundException, IOException {
+	public File download(ArrayList<CadresInfo> cadresInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
 		file = new File("excel/分团委/各组织学生干部名单表模板.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
@@ -128,7 +128,7 @@ public class ExcelCadresInfo {
 		}
 
 		System.out.println("数据已经写入excel中。");
-
+		return file;
 	}
 
 }

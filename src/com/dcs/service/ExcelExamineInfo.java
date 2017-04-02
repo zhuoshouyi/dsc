@@ -2,8 +2,11 @@ package com.dcs.service;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -15,6 +18,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.junit.Test;
 
+import com.dcs.pojo.ExamineInfo;
 import com.dcs.pojo.ExamineInfo;
 
 public class ExcelExamineInfo {
@@ -36,7 +40,7 @@ public class ExcelExamineInfo {
 	 * @throws IOException
 	 */
 	@Test
-	public void examineInfoServers() throws IOException {
+	public ArrayList<ExamineInfo> upload() throws IOException {
 
 		ArrayList<ExamineInfo> examineInfoList = new ArrayList<ExamineInfo>();
 
@@ -65,14 +69,15 @@ public class ExcelExamineInfo {
 			examineInfo.setCounselor(cell[0].getStringCellValue());
 			examineInfo.setDailyExamine(cell[1].getNumericCellValue());
 			examineInfo.setStudentExamine(cell[2].getNumericCellValue());
-			examineInfo.setTotalExamine(cell[3].getNumericCellValue());
+			examineInfo.setevaluationExamine(cell[3].getNumericCellValue());
+			examineInfo.setTotalExamine(cell[4].getNumericCellValue());
 			examineInfoList.add(examineInfo);
 			rowIndex++;
 			row = sheet.getRow(rowIndex);
 		}
 		System.out.println("ExamineInfo中数据导入完毕.");
 		System.out.println(examineInfoList);
-		// return examineInfoList;
+		return examineInfoList;
 	}
 
 	/**
@@ -114,5 +119,44 @@ public class ExcelExamineInfo {
 		}
 
 		return false;
+	}
+
+	public File download(ArrayList<ExamineInfo> examineInfoList) throws FileNotFoundException, IOException {
+		// 选择文件
+		file = new File("excel/学工办/年度辅导员、班主任测评汇总表.xls");
+		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
+		sheet = workbook.getSheetAt(0);
+
+		int size = examineInfoList.size();
+		for (int i = 0; i < size; i++) {// 循环，控制总行数
+			HSSFRow row = sheet.createRow(i + rowIndex);
+			ExamineInfo examineInfo = examineInfoList.get(i);
+			HSSFCell cell = row.createCell(0);
+			cell.setCellValue(examineInfo.getCounselor());
+			cell = row.createCell(1);
+			cell.setCellValue(examineInfo.getDailyExamine());
+			cell = row.createCell(2);
+			cell.setCellValue(examineInfo.getStudentExamine());
+			cell = row.createCell(3);
+			cell.setCellValue(examineInfo.getevaluationExamine());
+			cell = row.createCell(4);
+			cell.setCellValue(examineInfo.getTotalExamine());
+
+		}
+
+		// 利用数据流写入
+		OutputStream out = null;
+		try {
+			out = new FileOutputStream(file);
+			workbook.write(out);
+			out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		System.out.println("数据已经写入excel中。");
+		return file;
 	}
 }
