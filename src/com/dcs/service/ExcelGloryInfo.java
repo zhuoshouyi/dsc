@@ -82,7 +82,7 @@ public class ExcelGloryInfo {
 
 	public File download(ArrayList<GloryInfo> gloryInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/分团委/各组织学生干部名单表模板.xls");
+		file = new File("tempExcel/年级各种荣誉名单.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 
@@ -90,21 +90,21 @@ public class ExcelGloryInfo {
 		for (int i = 0; i < size; i++) {// 循环，控制总行数
 			HSSFRow row = sheet.createRow(i + rowIndex);
 			GloryInfo gloryInfo = gloryInfoList.get(i);
-			HSSFCell cell = row.createCell(0);
+			HSSFCell cell = row.createCell(1);
 			cell.setCellValue(gloryInfo.getName());
-			cell = row.createCell(1);
-			cell.setCellValue(gloryInfo.getStudentId());
 			cell = row.createCell(2);
-			cell.setCellValue(gloryInfo.getClassroom());
+			cell.setCellValue(gloryInfo.getStudentId());
 			cell = row.createCell(3);
-			cell.setCellValue(gloryInfo.getContestName());
+			cell.setCellValue(gloryInfo.getClassroom());
 			cell = row.createCell(4);
-			cell.setCellValue(gloryInfo.getContestGrade());
+			cell.setCellValue(gloryInfo.getContestName());
 			cell = row.createCell(5);
-			cell.setCellValue(gloryInfo.getRewardTime());
+			cell.setCellValue(gloryInfo.getContestGrade());
 			cell = row.createCell(6);
-			cell.setCellValue(gloryInfo.getRemark());
+			cell.setCellValue(gloryInfo.getRewardTime());
 			cell = row.createCell(7);
+			cell.setCellValue(gloryInfo.getRemark());
+			cell = row.createCell(0);
 			cell.setCellValue(gloryInfo.getRewardNature());
 
 		}

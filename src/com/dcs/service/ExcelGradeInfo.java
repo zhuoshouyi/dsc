@@ -17,7 +17,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.junit.Test;
 
 import com.dcs.pojo.GradeInfo;
-import com.dcs.pojo.GradeInfo;
 
 public class ExcelGradeInfo {
 	private int rowIndex = 2; // The row index start from 3 row.
@@ -91,7 +90,7 @@ public class ExcelGradeInfo {
 
 	public File download(ArrayList<GradeInfo> gradeInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/年级信息一览表.xls");
+		file = new File("tempExcel/年级信息一览表.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

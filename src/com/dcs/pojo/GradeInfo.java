@@ -37,6 +37,25 @@ public class GradeInfo {
 
 	private String remark;
 
+	public GradeInfo() {
+		this.classroom = "机械1401";
+		this.people = 31;
+		this.male = 28;
+		this.female = 3;
+		this.partyMember = 6;
+		this.activist = 0;
+		this.teacher = "张可维";
+		this.monitor = "王锦坤";
+		this.leagueSecretary = "薛齐豪";
+		this.studiesCommissary = "王榜";
+		this.sportsCommissary = "苏凡";
+		this.affairCommissary = "陈祥祥";
+		this.organizationCommissary = "吴中晗";
+		this.publicityCommissary = "吴中晗";
+		this.psychologicalCommissary = "无";
+		this.remark = "";
+	}
+
 	public Integer getId() {
 		return id;
 	}

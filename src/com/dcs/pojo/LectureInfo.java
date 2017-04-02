@@ -17,6 +17,15 @@ public class LectureInfo {
 
 	private String participants;
 
+	public LectureInfo() {
+		this.play = "一";
+		this.time = "2016.1.1";
+		this.place = "图书馆";
+		this.object = "机械";
+		this.talker = "张三";
+		this.participants = "李四";
+	}
+
 	public Integer getId() {
 		return id;
 	}

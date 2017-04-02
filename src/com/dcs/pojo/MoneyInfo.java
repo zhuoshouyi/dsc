@@ -19,6 +19,16 @@ public class MoneyInfo {
 
 	private String remark;
 
+	public MoneyInfo() {
+		this.moneyName = "一等奖学金";
+		this.name = "张三";
+		this.studentId = 1405;
+		this.classroom = "机械1401";
+		this.grade = "一年级";
+		this.money = "2000";
+		this.remark = "";
+	}
+
 	public Integer getId() {
 		return id;
 	}

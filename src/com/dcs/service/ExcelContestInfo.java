@@ -17,7 +17,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.junit.Test;
 
 import com.dcs.pojo.ContestInfo;
-import com.dcs.pojo.ContestInfo;
 
 public class ExcelContestInfo {
 	private int rowIndex = 2; // The row index start from 3 row.
@@ -83,7 +82,7 @@ public class ExcelContestInfo {
 
 	public void download(ArrayList<ContestInfo> contestInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/学科竞赛统计表.xls");
+		file = new File("tempExcel/学科竞赛统计表.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

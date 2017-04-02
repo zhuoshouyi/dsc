@@ -23,6 +23,19 @@ public class CadresInfo {
 
 	private String remark;
 
+	public CadresInfo() {
+		super();
+		this.nameChairman = "张三";
+		this.functionChairman = "主席";
+		this.contactsChairman = "123";
+		this.departmentCharge = "青协";
+		this.nameSecretary = "李四";
+		this.functionSecretary = "部长";
+		this.contactsSecretary = "321";
+		this.studentOrganization = "青协";
+		this.remark = "无";
+	}
+
 	public Integer getId() {
 		return id;
 	}

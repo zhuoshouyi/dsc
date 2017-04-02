@@ -83,7 +83,7 @@ public class ExcelMoneyInfo {
 
 	public File download(ArrayList<MoneyInfo> moneyInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/年级奖、助学金名单.xls");
+		file = new File("tempExcel/年级奖、助学金名单.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

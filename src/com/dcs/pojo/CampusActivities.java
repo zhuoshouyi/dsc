@@ -23,6 +23,18 @@ public class CampusActivities {
 
 	private String remark;
 
+	public CampusActivities() {
+		this.contextName = "拔河";
+		this.project = "拔河";
+		this.contextGrade = "";
+		this.studentId = 1405;
+		this.reward = "一等";
+		this.studentName = "张三";
+		this.grade = "一年级";
+		this.classroom = "机械1401班";
+		this.remark = "";
+	}
+
 	public Integer getId() {
 		return id;
 	}

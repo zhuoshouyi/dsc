@@ -27,6 +27,23 @@ public class PartyBuild {
 
 	private String numParty;
 
+	private String partyNature;
+
+	public PartyBuild() {
+		this.studentId = 1405;
+		this.name = "张三";
+		this.classroom = "机械1401";
+		this.sex = "男";
+		this.partyBranch = "";
+		this.birthday = "2016.1.1";
+		this.probationaryPartyMemberDate = "2016.1.1";
+		this.regularPartyMemberDate = "2016.1.1";
+		this.nation = "汉";
+		this.idCard = "420982";
+		this.numParty = "2";
+		this.partyNature = "正式党员";
+	}
+
 	public Integer getId() {
 		return id;
 	}
@@ -129,6 +146,14 @@ public class PartyBuild {
 
 	public void setNumParty(String numParty) {
 		this.numParty = numParty == null ? null : numParty.trim();
+	}
+
+	public String getPartyNature() {
+		return partyNature;
+	}
+
+	public void setPartyNature(String partyNature) {
+		this.partyNature = partyNature;
 	}
 
 	@Override

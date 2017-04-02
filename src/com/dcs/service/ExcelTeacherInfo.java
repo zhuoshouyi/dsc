@@ -18,7 +18,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.junit.Test;
 
 import com.dcs.pojo.TeacherInfo;
-import com.dcs.pojo.TeacherInfo;
 
 public class ExcelTeacherInfo {
 	private int rowIndex = 2; // The row index start from 3 row.
@@ -83,7 +82,7 @@ public class ExcelTeacherInfo {
 
 	public File download(ArrayList<TeacherInfo> teacherInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/学工办/班主任名单.xls");
+		file = new File("tempExcel/学工办/班主任名单.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

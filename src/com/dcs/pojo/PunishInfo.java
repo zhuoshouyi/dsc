@@ -17,6 +17,15 @@ public class PunishInfo {
 
 	private String punishTime;
 
+	public PunishInfo() {
+		this.name = "张三";
+		this.studentId = 1405;
+		this.classroom = "机械1401";
+		this.punishGrade = "警告";
+		this.punishReason = "警告";
+		this.punishTime = "2016.1.1";
+	}
+
 	public Integer getId() {
 		return id;
 	}

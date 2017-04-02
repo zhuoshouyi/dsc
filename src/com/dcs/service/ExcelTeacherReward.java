@@ -80,7 +80,7 @@ public class ExcelTeacherReward {
 
 	public File download(ArrayList<TeacherReward> teacherRewardList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/学工办/教师表彰名单.xls");
+		file = new File("tempExcel/学工办/教师表彰名单.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 
@@ -88,17 +88,17 @@ public class ExcelTeacherReward {
 		for (int i = 0; i < size; i++) {// 循环，控制总行数
 			HSSFRow row = sheet.createRow(i + rowIndex);
 			TeacherReward teacherReward = teacherRewardList.get(i);
-			HSSFCell cell = row.createCell(0);
+			HSSFCell cell = row.createCell(1);
 			cell.setCellValue(teacherReward.getName());
-			cell = row.createCell(1);
-			cell.setCellValue(teacherReward.getRewardName());
 			cell = row.createCell(2);
-			cell.setCellValue(teacherReward.getRewardGrade());
+			cell.setCellValue(teacherReward.getRewardName());
 			cell = row.createCell(3);
-			cell.setCellValue(teacherReward.getRewardTime());
+			cell.setCellValue(teacherReward.getRewardGrade());
 			cell = row.createCell(4);
-			cell.setCellValue(teacherReward.getRemark());
+			cell.setCellValue(teacherReward.getRewardTime());
 			cell = row.createCell(5);
+			cell.setCellValue(teacherReward.getRemark());
+			cell = row.createCell(0);
 			cell.setCellValue(teacherReward.getRewardNature());
 
 		}

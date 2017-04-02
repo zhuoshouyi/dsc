@@ -21,6 +21,17 @@ public class GloryInfo {
 
 	private String rewardNature;
 
+	public GloryInfo() {
+		this.name = "张三";
+		this.studentId = 1405;
+		this.classroom = "机械1401";
+		this.contestName = "篮球";
+		this.contestGrade = "一等奖";
+		this.rewardTime = "2016.1.1";
+		this.remark = "";
+		this.rewardNature = "省奖";
+	}
+
 	public Integer getId() {
 		return id;
 	}

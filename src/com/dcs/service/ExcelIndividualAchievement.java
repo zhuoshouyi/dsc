@@ -17,7 +17,6 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.junit.Test;
 
 import com.dcs.pojo.IndividualAchievement;
-import com.dcs.pojo.IndividualAchievement;
 
 public class ExcelIndividualAchievement {
 	private int rowIndex = 3; // The row index start from 4 row.
@@ -80,7 +79,7 @@ public class ExcelIndividualAchievement {
 	public File download(ArrayList<IndividualAchievement> individualAchievementList)
 			throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/个人成果及获奖情况.xls");
+		file = new File("tempExcel/个人成果及获奖情况.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

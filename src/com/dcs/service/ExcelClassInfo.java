@@ -86,7 +86,7 @@ public class ExcelClassInfo {
 
 	public void download(ArrayList<ClassInfo> classInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/学生班级信息一览表.xls");
+		file = new File("tempExcel/学生班级信息一览表.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

@@ -17,6 +17,15 @@ public class TeacherInfo {
 
 	private String contacts;
 
+	public TeacherInfo() {
+		this.classroom = "机械1401";
+		this.teacher = "张三";
+		this.sex = "男";
+		this.nativePlace = "湖北";
+		this.birthPlace = "湖北";
+		this.contacts = "1231654";
+	}
+
 	public Integer getId() {
 		return id;
 	}

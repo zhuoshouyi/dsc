@@ -79,7 +79,7 @@ public class ExcelChangeInfo {
 
 	public File download(ArrayList<ChangeInfo> changeInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/年级学籍异动学生名单和原因.xls");
+		file = new File("tempExcel/年级学籍异动学生名单和原因.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

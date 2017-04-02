@@ -13,6 +13,13 @@ public class IndividualAchievement {
 
 	private String remark;
 
+	public IndividualAchievement() {
+		this.achievement = "国家奖";
+		this.reward = "一等奖";
+		this.rewardTime = "2016.11.1";
+		this.remark = "";
+	}
+
 	public Integer getId() {
 		return id;
 	}

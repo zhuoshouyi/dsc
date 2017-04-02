@@ -18,7 +18,6 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.junit.Test;
 
 import com.dcs.pojo.PartyBuild;
-import com.dcs.pojo.PartyBuild;
 
 public class ExcelPartyBuild {
 	private int rowIndex = 2; // The row index start from 3 row.
@@ -90,7 +89,7 @@ public class ExcelPartyBuild {
 
 	public File download(ArrayList<PartyBuild> partyBuildList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/年级本学期党建学生名单.xls");
+		file = new File("tempExcel/年级本学期党建学生名单.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 
@@ -98,28 +97,30 @@ public class ExcelPartyBuild {
 		for (int i = 0; i < size; i++) {// 循环，控制总行数
 			HSSFRow row = sheet.createRow(i + rowIndex);
 			PartyBuild partyBuild = partyBuildList.get(i);
-			HSSFCell cell = row.createCell(0);
+			HSSFCell cell = row.createCell(1);
 			cell.setCellValue(partyBuild.getStudentId());
-			cell = row.createCell(1);
-			cell.setCellValue(partyBuild.getName());
 			cell = row.createCell(2);
-			cell.setCellValue(partyBuild.getClassroom());
+			cell.setCellValue(partyBuild.getName());
 			cell = row.createCell(3);
-			cell.setCellValue(partyBuild.getSex());
+			cell.setCellValue(partyBuild.getClassroom());
 			cell = row.createCell(4);
-			cell.setCellValue(partyBuild.getPartyBranch());
+			cell.setCellValue(partyBuild.getSex());
 			cell = row.createCell(5);
-			cell.setCellValue(partyBuild.getBirthday());
+			cell.setCellValue(partyBuild.getPartyBranch());
 			cell = row.createCell(6);
-			cell.setCellValue(partyBuild.getProbationaryPartyMemberDate());
+			cell.setCellValue(partyBuild.getBirthday());
 			cell = row.createCell(7);
-			cell.setCellValue(partyBuild.getRegularPartyMemberDate());
+			cell.setCellValue(partyBuild.getProbationaryPartyMemberDate());
 			cell = row.createCell(8);
-			cell.setCellValue(partyBuild.getNation());
+			cell.setCellValue(partyBuild.getRegularPartyMemberDate());
 			cell = row.createCell(9);
-			cell.setCellValue(partyBuild.getIdCard());
+			cell.setCellValue(partyBuild.getNation());
 			cell = row.createCell(10);
+			cell.setCellValue(partyBuild.getIdCard());
+			cell = row.createCell(11);
 			cell.setCellValue(partyBuild.getNumParty());
+			cell = row.createCell(0);
+			cell.setCellValue(partyBuild.getPartyNature());
 
 		}
 

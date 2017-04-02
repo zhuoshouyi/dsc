@@ -23,6 +23,18 @@ public class StudentReward {
 
 	private String rewardNature;
 
+	public StudentReward() {
+		this.name = "张三";
+		this.studentId = 1405;
+		this.grade = "一年级";
+		this.classroom = "机械1401";
+		this.rewardName = "机械创新大赛";
+		this.rewardGrade = "省一等奖";
+		this.rewardTime = "2016.1.1";
+		this.remark = "";
+		this.rewardNature = "省奖及以上";
+	}
+
 	public Integer getId() {
 		return id;
 	}

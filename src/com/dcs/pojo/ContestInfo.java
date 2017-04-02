@@ -19,6 +19,16 @@ public class ContestInfo {
 
 	private String remark;
 
+	public ContestInfo() {
+		this.sponsor = "张三";
+		this.contestName = "机械创新大赛";
+		this.contestGrade = "省级一等奖";
+		this.workName = "机械";
+		this.contestStudent = "李四";
+		this.tutor = "王五";
+		this.remark = "";
+	}
+
 	public Integer getId() {
 		return id;
 	}

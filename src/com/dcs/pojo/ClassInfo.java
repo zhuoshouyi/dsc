@@ -21,6 +21,17 @@ public class ClassInfo {
 
 	private Boolean partyMember;
 
+	public ClassInfo() {
+		this.studentId = 1405;
+		this.name = "张三";
+		this.sex = "男";
+		this.nativePlace = "湖北";
+		this.birthPlace = "湖北";
+		this.idCard = "420982";
+		this.contacts = "233333";
+		this.partyMember = false;
+	}
+
 	public Integer getId() {
 		return id;
 	}

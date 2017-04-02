@@ -80,7 +80,7 @@ public class ExcelPunishInfo {
 
 	public File download(ArrayList<PunishInfo> punishInfoList) throws FileNotFoundException, IOException {
 		// 选择文件
-		file = new File("excel/年级受处分学生名单.xls");
+		file = new File("tempExcel/年级受处分学生名单.xls");
 		workbook = new HSSFWorkbook(new FileInputStream(file));// 创建操作Excel的HSSFWorkbook对象
 		sheet = workbook.getSheetAt(0);
 

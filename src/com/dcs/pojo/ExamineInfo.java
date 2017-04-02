@@ -15,6 +15,14 @@ public class ExamineInfo {
 
 	private Double totalExamine;
 
+	public ExamineInfo() {
+		this.counselor = "张三";
+		this.dailyExamine = 99.2;
+		this.studentExamine = 98.1;
+		this.evaluationExamine = 97.5;
+		this.totalExamine = 98.9;
+	}
+
 	public Integer getId() {
 		return id;
 	}
